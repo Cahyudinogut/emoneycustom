@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frogress Shop — Emoney Custom Print UV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef5ef;--card:#fff;--tx:#14231a;--mu:#6b7a70;--br:#3d9f45;--bt:#34a31f;--on:#fff;--ac:#ea580c;--bd:#e0e9e1;--soft:#dcfce7;--hd:#fff;--gl:#e3ebe5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1510;--card:#16211a;--tx:#e8f2ea;--mu:#8fa496;--br:#2f7d37;--bt:#4ade80;--bd:#243428;--soft:#14321f;--hd:#101a13;--gl:#1b2a1f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1510;--card:#16211a;--tx:#e8f2ea;--mu:#8fa496;--br:#2f7d37;--bt:#4ade80;--bd:#243428;--soft:#14321f;--hd:#101a13;--gl:#1b2a1f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:76px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.tp{background-color:var(--hd);background-image:linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px);background-size:22px 22px;padding:12px 16px}
+.tp>div{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--bt);font:italic 800 24px/1 Montserrat,system-ui,sans-serif;letter-spacing:-.5px}
+.logo img,.logo svg{width:34px;height:34px;object-fit:contain}
+.logo svg{display:none}
+.ic{position:relative;padding:2px 4px;color:var(--tx);display:flex}
+.ic i{position:absolute;top:-6px;left:-6px;background:var(--ac);color:#fff;font:700 12px/1 system-ui;border-radius:11px;padding:4px 6px;min-width:20px;text-align:center;font-style:normal}
+.ic i[data-n="0"]{display:none}
+.sb{background:var(--br);padding:10px 12px 12px}
+.sb input{display:block;width:100%;max-width:1176px;margin:0 auto;border:0;border-radius:12px;padding:12px 16px;font:inherit;background:var(--card);color:var(--tx);outline:none}
+main{max-width:1200px;margin:0 auto;padding:10px 12px}
+.bn1{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:14px;scrollbar-width:none}
+.bn1::-webkit-scrollbar,.rl::-webkit-scrollbar,.hs::-webkit-scrollbar,.chips::-webkit-scrollbar,.gal::-webkit-scrollbar{display:none}
+.bn1>div{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:393/118;color:#fff;padding:0 20px;display:flex;flex-direction:column;justify-content:center}
+.bn1 b{font-size:clamp(16px,5vw,30px);line-height:1.2}.bn1 span{font-size:clamp(12px,2vw,16px);opacity:.92;margin-top:3px}
+.ct{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:var(--card);border-radius:14px;padding:12px 4px;margin-top:10px}
+.ct a{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;text-decoration:none;text-align:center}
+.ct b{width:48px;height:48px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:24px;font-weight:400}
+.sc{background:var(--card);border-radius:14px;padding:12px;margin-top:10px}
+.sh2{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.sh2 b{font-size:16px;color:var(--bt)}.sh2 a{font-size:12px;color:var(--mu);text-decoration:none}
+.rl{display:flex;gap:8px;overflow-x:auto}
+.vt{flex:0 0 calc((100% - 24px)/4);aspect-ratio:155/210;border-radius:8px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;color:#fff;font-size:11px;font-weight:600;line-height:1.25;padding:6px;background:linear-gradient(160deg,hsl(var(--h) 55% 42%),hsl(var(--h) 65% 20%))}
+.vt::before{content:attr(data-p);position:absolute;top:6px;left:6px;font-size:9px;background:rgba(0,0,0,.5);padding:2px 5px;border-radius:4px}
+.vt span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.hs{display:flex;gap:10px;overflow-x:auto}.hs .cd{flex:0 0 44%}
+.yt{aspect-ratio:2/1;border-radius:14px;overflow:hidden;background:#111;color:#fff;display:grid;place-items:center;text-align:center;margin-top:10px}
+.yt iframe{width:100%;height:100%;border:0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px}
+.chip{flex:none;padding:8px 14px;border-radius:20px;background:var(--card);border:1px solid var(--bd);font-size:14px;text-decoration:none}
+.chip.on{background:var(--br);color:var(--on);border-color:var(--br);font-weight:600}
+.chips.sub .chip{font-size:13px;padding:6px 12px}
+h2{font-size:16px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.cd{background:var(--bg);border:1px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer}
+.cd:active{transform:scale(.97)}
+.th{position:relative;aspect-ratio:1;display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,hsl(var(--h) 75% 88%),hsl(var(--h) 65% 72%))}
+.th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tg{position:absolute;top:8px;left:0;background:var(--ac);color:#fff;font:700 10.5px/1 system-ui;padding:4px 7px 4px 6px;border-radius:0 6px 6px 0;font-style:normal}
+.bd{padding:8px 10px 10px}
+.bd h3{margin:0 0 5px;font-size:13.5px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em}
+.pr{color:var(--ac);font-weight:700;font-size:15px}.pr s{color:var(--mu);font-weight:400;font-size:12px;margin-left:6px}
+small{color:var(--mu);font-size:12px;font-weight:400}
+.empty{grid-column:1/-1;text-align:center;color:var(--mu);padding:36px 0}
+.vr{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 0;border-bottom:1px solid var(--bd)}
+.vr .vt{flex:0 0 52px;aspect-ratio:1;font-size:0;padding:0;align-items:center;justify-content:center}
+.vr .vt::before{content:"▶";position:static;background:none;font-size:16px}
+.vr div{min-width:0;font-size:14px}
+.foot{text-align:center;color:var(--mu);font-size:12px;margin:20px 0 0}
+.nv{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nv>div{display:flex;max-width:720px;margin:0 auto}
+.nv a,.nv button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 7px;font-size:11px;color:var(--mu);text-decoration:none}
+.nv b{font-size:20px;font-weight:400}.nv .on{color:var(--br);font-weight:600}
+#ov{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center}
+#ov[hidden]{display:none}
+#sh{background:var(--card);width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:20px 20px 0 0;padding:14px 16px calc(16px + env(safe-area-inset-bottom,0px));animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.x{position:sticky;top:0;display:block;margin:0 0 -30px auto;z-index:3;font-size:20px;line-height:1;background:rgba(0,0,0,.5);color:#fff;border-radius:50%;width:30px;height:30px}
+.gw{position:relative;margin-bottom:12px}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:min(calc(100vw - 32px),420px);border-radius:14px}
+.sl{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;background:linear-gradient(135deg,hsl(var(--h) 75% 88%),hsl(var(--h) 65% 72%))}
+.sl span{font-size:110px}.sl img{width:100%;height:100%;object-fit:cover}
+.sl video{width:100%;height:100%;object-fit:contain;background:#000}
+.cnt{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:3px 9px;border-radius:12px}
+.pr.big{font-size:22px;margin:4px 0}
+.g{margin-top:12px}.g>b{font-size:14px}
+.vs{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+.vc{padding:7px 13px;border:1px solid var(--bd);border-radius:8px;font-size:14px}
+.vc.on{border-color:var(--br);background:var(--soft);color:var(--bt);font-weight:600}
+.row{display:flex;gap:10px;margin-top:16px}
+.btn{flex:1;padding:13px;border-radius:12px;background:var(--br);color:var(--on);font-weight:700;text-align:center;text-decoration:none;display:block}
+.btn.o{background:none;border:1.5px solid var(--br);color:var(--bt)}
+.vf{width:100%;max-width:340px;height:min(68vh,600px);margin:10px auto 0;border-radius:12px;overflow:hidden;background:#000}
+.vf iframe{width:100%;height:100%;border:0}
+.it{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}
+.it .th{width:54px;flex:none;font-size:26px;border-radius:10px}
+.it>div:nth-child(2){flex:1;min-width:0;font-size:13.5px}
+.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border:1px solid var(--bd);border-radius:8px}
+.tot{display:flex;justify-content:space-between;font-size:17px;font-weight:700;margin-top:14px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#14231a;color:#fff;padding:9px 16px;border-radius:20px;font-size:13px;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.on{opacity:1}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,1fr)}.hs .cd{flex-basis:calc((100% - 30px)/4)}}
+@media(min-width:820px){.grid{grid-template-columns:repeat(4,1fr)}.vt{flex-basis:calc((100% - 40px)/6)}.ct b{width:60px;height:60px;font-size:30px}.ct a{font-size:13px}.bn1>div{aspect-ratio:1176/250;padding:0 48px}.yt{max-width:760px;margin-inline:auto}#ov{align-items:center}#sh{border-radius:20px;max-width:620px}.vr .vt{flex-basis:52px}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}.hs .cd{flex-basis:calc((100% - 50px)/6)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="tp"><div>
+    <a class="logo" href="#home"><img src="images/favfrogress.ico" alt="" onerror="this.nextElementSibling.style.display='block';this.remove()"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M6 17c0-4 3-7 7-7h17l-3 6H15c-1 0-2 1-2 2z"/><path d="M9 28c0-4 3-6 7-6h11l-3 6h-5c-1 0-2 1-2 2z"/></svg>Frogress Shop</a>
+    <button class="ic" data-a="cart" aria-label="Keranjang"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 7H6"/></svg><i id="bd" data-n="0"></i></button>
+  </div></div>
+  <div class="sb"><input id="q" type="search" placeholder="Cari produk, ulasan, video…" aria-label="Cari produk dan video ulasan"></div>
+</header>
+<main id="app"></main>
+<nav class="nv"><div>
+  <a id="n1" href="#home"><b>🏠</b>Beranda</a>
+  <a id="n2" href="#emoney"><b>🗂️</b>Kategori</a>
+  <button data-a="cart"><b>🛒</b>Keranjang</button>
+  <a id="nc" href="#" target="_blank" rel="noopener"><b>💬</b>Chat</a>
+</div></nav>
+<div id="ov" hidden><div id="sh"></div></div>
+<div id="toast"></div>
+<script>
+var WA="628561361446",ULASAN="https://frogressshop.vercel.app/ulasan.html",YT="",DISC=.1,PL="-10% Order Offline";
+var $=function(s){return document.querySelector(s)};
+var fmt=function(n){return n?"Rp"+n.toLocaleString("id-ID"):"Tanya admin"};
+var CK=["Tapcash","Brizzi","Emoney","Flazz"],FN=["Doff 1 sisi","Doff 2 sisi","Glossy 1 sisi","Glossy 2 sisi","3D Doff","3D Glossy","3D Auto 2 sisi"];
+// harga jual (ribuan) dari daftar harga: baris = finishing, kolom = Tapcash, Brizzi, Emoney, Flazz. 0 = belum ada harga, dikonfirmasi admin
+var M=[[60,68,80,98],[82,90,102,120],[83.2,91.2,103.2,121],[105,113,125,143],[132,140,152,170],[145,153,165,183],[0,0,0,0]];
+var CATS=[["emoney","E-Money","💳"],["pvc","PVC","🪪"],["tumbler","Tumbler","🥤"],["sticker","Sticker","🏷️"],["desain","Jasa Desain","🎨"]];
+var SUB=["Kartun Lucu","Kartu Sultan","Anime","Kpop","Seni"];
+var D=[["Kartun Lucu","capybara 🦫,Lotso 1 - 9 gambar 🧸,Lotso 2 - 4 gambar 🧸,Nailong 1 🐉,Princess All 2 Cover 👸,Princess All 5 Cover 👸,Rapunzell v.2 🌟,Spiderman Brand New Day 🕷️,Spongebob SIM 🧽,Spongebob V.1 🧽,Doraemon 1 🔔,Sinchan 🖍️"],
+["Kartu Sultan","KS Amex 💳,KS BCA Black 🖤,KS BCA Prioritas 💙,KS BCA Solitaire 💎,KS Black Titanium ⬛,KS Mandiri Prioritas 💛,KS Mandiri Private Elite 👑,KS UNIONPAY 🔴,Uno Black 🃏"],
+["Anime","Demon Slayer V.2 4 gambar ⚔️,HXH Karakter Gon Killua 🎣,HXH Lisensi 🎣,Pokemon 1 ⚡,Pokemon Charizard 🔥,Pokemon Pikachu ⚡,Pokemon Umum ⚡"],
+["Kpop","BT21 Cute 🐶,BTS Arirang 💜,BTS LOVE YOURSELF 💜,CORTIS 🎤"],
+["Seni","BATIK 🧵,Timnas ⚽,Kartu Etoll 2 kartu pilihan Flazz Emoney 🛣️,Kartu Etoll 4 kartu pilihan 🛣️"]];
+var GE=[{n:"Kartu",o:CK,h:"semua kartu ada chip-nya"},{n:"Finishing",o:FN}];
+var GP=[{n:"Kartu",o:["PVC"],h:"tanpa chip"},{n:"Finishing",o:["Doff 1 sisi","Doff 2 sisi"]}];
+var P=[],id=0;
+D.forEach(function(d){d[1].split(",").forEach(function(s){var k=s.lastIndexOf(" "),n=s.slice(0,k),km=/Etoll (\d) kartu/.exec(n);id++;P.push({id:id,c:"emoney",t:"e",sub:d[0],n:n,e:s.slice(k+1),h:(id*37)%360,g:GE,kx:km?+km[1]:1,lb:"E-Money · "+d[0]})})});
+P.push({id:37,c:"pvc",n:"Kartu Nama PVC Print UV",e:"🪪",h:200,g:GP,pr:[18000,28500],ix:1,lb:"PVC"});
+P.push({id:38,c:"pvc",n:"MY Pertamina PVC",e:"⛽",h:10,g:GP,pr:[18000,28500],ix:1,lb:"PVC"});
+P.push({id:39,c:"tumbler",n:"Tumbler Niagara Print UV",e:"🥤",h:170,g:[{n:"Sisi",o:["1 sisi","2 sisi","Keliling"]}],pr:[45000,50000,75000],ix:0,lb:"Tumbler"});
+P.push({id:40,c:"sticker",n:"Sticker Vinyl Print Custom A3",e:"🏷️",h:50,g:[],pr:[25000],ix:0,lb:"Sticker"});
+P.push({id:41,c:"desain",n:"Jasa Desain Custom",e:"🎨",h:280,g:[],pr:[50000],ix:0,lb:"Jasa Desain"});
+var PM=[1,2,4,9,13,15,22,26,29,30],REC=[26,13,2,22,29,39,40,41];
+var cp=function(n){return Math.round(n*(1-DISC)/100)*100};
+P.forEach(function(p){p.pm=PM.indexOf(p.id)>-1;var a=p.t=="e"?[].concat.apply([],M).filter(Boolean).map(function(x){return Math.round(x*1000)*p.kx}):p.pr;p.mn=Math.min.apply(0,a)});
+var GN=["BCA Prio","Pokemon","Perbedaan Finishing","Timnas","Lotso &amp; Capybara","Merch Lainnya"];
+// video ulasan dari ulasan.html: kelompok|platform (i=Instagram, t=TikTok)|judul|id
+var V=["0|i|Tanpa Lis 3D Doff — Mastercard Ada Text|Cwc5AlAg__A","0|i|3D Doff Lis Abu — Mastercard Ada Text|C4RGeRTIwM6","0|i|Amex Doff — Belakang Custom Nama|CySV3nnIleb",
+"1|i|Rayquaza Glossy|C4-ZuQshA0W","1|t|Rayquaza Japan — 3D Glossy|7675985566969629959","1|i|Charizard Doff|C3xlVsyhs9w","1|i|Charizard EX Wild Blaze|C113Y7khUic","1|t|Pikachu Zekrom GX Full Blitz 3D Glossy Flazz|7657353144967417096","1|t|Pikachu EX 200 HP - 230/182 SAR — 3D Glossy|7610438222266649874","1|t|Duck Japan Glossy Emoney|7584063367212584199","1|t|Pikachu EX 3D Glossy|7586336090873679111","1|t|Pokemon Illustrator 3D Glossy|7581353943486434568","1|t|Pokemon Illustrator 3D Glossy|7574354950990466312","1|t|Charizard EX 180 — Immersive Rare — 3D Doff|7532897143581920530",
+"2|i|Perbedaan Doff, Glossy &amp; CMYK|DBJFPRqtIFq","2|i|Perbedaan Doff &amp; Glossy Pokemon|DaxOJmHDTnE","2|t|Perbedaan 3D Doff dan Glossy|7662355240913472786",
+"3|t|Timnas — Emoney Doff Seperti 3D Image|7668475814287101191","4|t|Lotso|7656791171405974792","4|t|Capybara Emoney|7628426017924861202","5|t|Botol Plastik Bening|7580614706625400071"].map(function(s){var a=s.split("|");return{g:+a[0],t:a[1],n:a[2],id:a[3]}});
+var VH=[16,17,10,18,2,19],PN={t:"TikTok",i:"Instagram"};
+function base(p,s){return p.t=="e"?Math.round(M[s[1]][s[0]]*1000)*p.kx:p.pr[s[p.ix]||0]}
+function price(p,s){var b=base(p,s);return p.pm?cp(b):b}
+var byId=function(i){return P.find(function(p){return p.id==i})};
+function thumb(p){return p.img?'<img src="'+p.img+'" alt="" onerror="this.remove()">':''}
+function card(p){return '<article class="cd" data-a="det" data-id="'+p.id+'"><div class="th" style="--h:'+p.h+'">'+p.e+thumb(p)+(p.pm?'<em class="tg">'+PL+'</em>':'')+'</div><div class="bd"><h3>'+p.n+'</h3><div class="pr">'+(p.g.length?'<small>mulai </small>':'')+fmt(p.pm?cp(p.mn):p.mn)+(p.pm?'<s>'+fmt(p.mn)+'</s>':'')+'</div><small>'+p.lb+'</small></div></article>'}
+function vtile(i){var v=V[i];return '<button class="vt" data-a="vid" data-i="'+i+'" data-p="'+PN[v.t]+'" style="--h:'+(v.g*47+110)%360+'"><span>'+v.n+'</span></button>'}
+function home(){
+return '<div class="bn1" id="bn1"><div style="background:linear-gradient(120deg,#2f8a38,#5fd068)"><b>Emoney Custom Print UV</b><span>Kartu desainmu, hasil tajam dan awet</span></div><div style="background:linear-gradient(120deg,#c2410c,#fb923c)"><b>Promo '+PL+'</b><span>Pilih produk, pesan lewat WhatsApp</span></div></div>'
++'<div class="ct">'+CATS.map(function(c){return '<a href="#'+c[0]+'"><b>'+c[2]+'</b>'+c[1]+'</a>'}).join("")+'</div>'
++'<div class="sc"><div class="sh2"><b>Video Ulasan</b><a href="'+ULASAN+'" target="_blank" rel="noopener">Lihat selengkapnya ›</a></div><div class="rl">'+VH.map(vtile).join("")+'</div></div>'
++'<div class="sc"><div class="sh2"><b>Rekomendasi Produk</b></div><div class="hs">'+REC.map(function(i){return card(byId(i))}).join("")+'</div></div>'
++'<div class="yt">'+(YT?'<iframe src="https://www.youtube-nocookie.com/embed/'+YT+'?autoplay=1&mute=1&loop=1&playlist='+YT+'&controls=0&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>':'<div>▶ Video YouTube autoplay<br><small>isi variabel YT dengan ID video</small></div>')+'</div>'
++'<div class="sc"><div class="sh2"><b>Produk Promo '+PL+'</b></div><div class="grid">'+PM.map(function(i){return card(byId(i))}).join("")+'</div></div>'
++'<p class="foot">© Frogress Shop · Emoney Custom Print UV</p>'}
+var sub="Semua",q="",cart=[],sel=null,bt;
+function catv(k){
+var t='<div class="chips">'+CATS.map(function(c){return '<a class="chip'+(c[0]==k?' on':'')+'" href="#'+c[0]+'">'+c[2]+' '+c[1]+'</a>'}).join("")+'</div>';
+if(k=="emoney")t+='<div class="chips sub">'+["Semua"].concat(SUB).map(function(s){return '<button class="chip'+(s==sub?' on':'')+'" data-a="sub" data-c="'+s+'">'+s+'</button>'}).join("")+'</div>';
+var l=P.filter(function(p){return p.c==k&&(k!="emoney"||sub=="Semua"||p.sub==sub)});
+return t+'<div class="grid">'+l.map(card).join("")+'</div>'}
+function search(){
+var l=P.filter(function(p){return (p.n+" "+p.lb).toLowerCase().indexOf(q)>-1});
+var v=V.map(function(x,i){return i}).filter(function(i){return (V[i].n+" "+GN[V[i].g]+" "+PN[V[i].t]+" ulasan video").toLowerCase().indexOf(q)>-1});
+return (l.length?'<h2>Produk ('+l.length+')</h2><div class="grid">'+l.map(card).join("")+'</div>':'')
++(v.length?'<h2>Video Ulasan ('+v.length+')</h2><div class="sc">'+v.map(function(i){return '<button class="vr" data-a="vid" data-i="'+i+'">'+vtile(i)+'<div>'+V[i].n+'<br><small>'+PN[V[i].t]+' · '+GN[V[i].g]+'</small></div></button>'}).join("")+'</div>':'')
++(l.length+v.length?'':'<div class="empty">Tidak ditemukan 🐸</div>')}
+function route(top){
+var h=location.hash.slice(1)||"home",k=CATS.some(function(c){return c[0]==h})?h:"home";
+$("#app").innerHTML=q?search():(k=="home"?home():catv(k));
+$("#n1").className=k=="home"?"on":"";$("#n2").className=k!="home"?"on":"";
+clearInterval(bt);var b=$("#bn1");
+if(b)bt=setInterval(function(){b.scrollTo({left:((Math.round(b.scrollLeft/b.clientWidth)+1)%2)*b.clientWidth,behavior:"smooth"})},3500);
+if(top)window.scrollTo(0,0)}
+function sheet(h){$("#sh").innerHTML='<button class="x" data-a="close" aria-label="Tutup">×</button>'+h;$("#ov").hidden=false}
+function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},1600)}
+function ph(){var p=sel.p,b=base(p,sel.s),v=price(p,sel.s);return fmt(v)+(p.pm&&b?'<s>'+fmt(b)+'</s> <em class="tg" style="position:static;display:inline-block">'+PL+'</em>':'')}
+// media produk: isi p.m = [{t:"i",s:"images/x.jpg"},{t:"v",s:"video/x.mp4"}]; tanpa p.m tampil 1 slide placeholder
+function gal(p){var m=p.m||[{t:"i"}];
+return '<div class="gw"><div class="gal">'+m.map(function(x){var c=x.t=="v"?'<video src="'+x.s+'" controls playsinline muted loop></video>':(x.s?'<img src="'+x.s+'" alt="">':'<span>'+p.e+'</span>');return '<div class="sl" style="--h:'+p.h+'">'+c+'</div>'}).join("")+'</div>'+(m.length>1?'<span class="cnt" id="cnt">1/'+m.length+'</span>':'')+'</div>'}
+function det(i){var p=byId(i);sel={p:p,s:p.g.map(function(){return 0})};
+sheet(gal(p)+'<h2 style="margin:0">'+p.n+'</h2><small>'+p.lb+'</small><div class="pr big" id="dp">'+ph()+'</div>'
++p.g.map(function(g,gi){return '<div class="g"><b>'+g.n+'</b>'+(g.h?' <small>('+g.h+')</small>':'')+'<div class="vs">'+g.o.map(function(o,oi){return '<button class="vc'+(oi?'':' on')+'" data-a="opt" data-g="'+gi+'" data-i="'+oi+'">'+o+'</button>'}).join("")+'</div></div>'}).join("")
++'<div class="row"><button class="btn o" data-a="add">+ Keranjang</button><button class="btn" data-a="buy">Beli Langsung</button></div>');
+var g=$(".gal"),c=$("#cnt");if(c)g.addEventListener("scroll",function(){c.textContent=(Math.round(g.scrollLeft/g.clientWidth)+1)+"/"+g.children.length})}
+function vid(i){var v=V[i],t=v.t=="t",src=t?"https://www.tiktok.com/embed/v2/"+v.id:"https://www.instagram.com/p/"+v.id+"/embed",u=t?"https://www.tiktok.com/@desainerpercetakan/video/"+v.id:"https://www.instagram.com/p/"+v.id+"/";
+sheet('<h2 style="margin:0 0 2px;padding-right:34px">'+v.n+'</h2><small>'+PN[v.t]+' · '+GN[v.g]+'</small><div class="vf"><iframe src="'+src+'" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="row"><a class="btn" href="'+u+'" target="_blank" rel="noopener">Lihat di '+PN[v.t]+'</a></div>')}
+function line(it){var p=byId(it.id);return{p:p,u:price(p,it.s),v:p.g.map(function(g,i){return g.o[it.s[i]]}).join(" · ")}}
+function save(){try{localStorage.setItem("fs_cart2",JSON.stringify(cart))}catch(e){}var n=cart.reduce(function(a,i){return a+i.q},0),b=$("#bd");b.textContent=n||"";b.dataset.n=n}
+function add(){var k=sel.s.join(),i=cart.find(function(x){return x.id==sel.p.id&&x.s.join()==k});if(i)i.q++;else cart.push({id:sel.p.id,s:sel.s.slice(),q:1});save()}
+function msg(its){var t=0,u=0;var s=its.map(function(it,n){var l=line(it);if(l.u)t+=l.u*it.q;else u=1;
+return (n+1)+". "+l.p.n+(l.v?"\n   Varian: "+l.v.replace(/ · /g,", "):"")+"\n   "+it.q+" x "+(l.u?fmt(l.u)+" = "+fmt(l.u*it.q):"harga dikonfirmasi admin")+(l.p.pm?" (promo "+PL+")":"")}).join("\n");
+return "Halo Frogress Shop, saya mau pesan:\n\n"+s+"\n\nTotal: "+fmt(t)+(u?" (belum termasuk item yang harganya dikonfirmasi admin)":"")+"\n\nTerima kasih!"}
+function wa(its){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg(its)),"_blank")}
+function cartView(){
+if(!cart.length){sheet('<h2 style="margin:0">Keranjang</h2><div class="empty">Keranjang masih kosong 🛒</div>');return}
+var t=0;var h=cart.map(function(it,k){var l=line(it);t+=l.u*it.q;
+return '<div class="it"><div class="th" style="--h:'+l.p.h+'">'+l.p.e+'</div><div>'+l.p.n+'<br><small>'+(l.v?l.v+' · ':'')+fmt(l.u)+'</small></div><div class="q"><button data-a="dec" data-k="'+k+'">−</button>'+it.q+'<button data-a="inc" data-k="'+k+'">+</button></div></div>'}).join("");
+sheet('<h2 style="margin:0 0 6px">Keranjang</h2>'+h+'<div class="tot"><span>Total</span><span class="pr">'+fmt(t)+'</span></div><div class="row"><button class="btn" data-a="co">Checkout via WhatsApp</button></div>')}
+document.addEventListener("click",function(e){
+if(e.target.id=="ov"){$("#ov").hidden=true;$("#sh").innerHTML="";return}
+var el=e.target.closest("[data-a]");if(!el)return;var a=el.dataset.a;
+if(a=="det")det(el.dataset.id);
+else if(a=="vid")vid(el.dataset.i);
+else if(a=="sub"){sub=el.dataset.c;route()}
+else if(a=="opt"){sel.s[+el.dataset.g]=+el.dataset.i;el.parentNode.querySelectorAll(".vc").forEach(function(b){b.classList.toggle("on",b==el)});$("#dp").innerHTML=ph()}
+else if(a=="add"){add();toast("Ditambahkan ke keranjang ✓")}
+else if(a=="buy")wa([{id:sel.p.id,s:sel.s.slice(),q:1}]);
+else if(a=="cart")cartView();
+else if(a=="inc"){cart[el.dataset.k].q++;save();cartView()}
+else if(a=="dec"){var i=cart[el.dataset.k];if(--i.q<1)cart.splice(el.dataset.k,1);save();cartView()}
+else if(a=="co")wa(cart);
+else if(a=="close"){$("#ov").hidden=true;$("#sh").innerHTML=""}});
+$("#q").addEventListener("input",function(e){q=e.target.value.toLowerCase().trim();route()});
+window.addEventListener("hashchange",function(){q="";$("#q").value="";$("#ov").hidden=true;$("#sh").innerHTML="";route(true)});
+$("#nc").href="https://wa.me/"+WA;
+try{cart=JSON.parse(localStorage.getItem("fs_cart2")||"[]").filter(function(i){return byId(i.id)})}catch(e){cart=[]}
+save();route();
+</script>
+</body>
+</html>
