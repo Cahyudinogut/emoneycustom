@@ -42,7 +42,8 @@ main{max-width:1200px;margin:0 auto;padding:10px 12px}
 .rl{display:flex;gap:8px;overflow-x:auto}
 .vt{flex:0 0 calc((100% - 24px)/4);aspect-ratio:155/210;border-radius:8px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;color:#fff;font-size:11px;font-weight:600;line-height:1.25;padding:6px;background:linear-gradient(160deg,hsl(var(--h) 55% 42%),hsl(var(--h) 65% 20%))}
 .vt::before{content:attr(data-p);position:absolute;top:6px;left:6px;font-size:9px;background:rgba(0,0,0,.5);padding:2px 5px;border-radius:4px}
-.vt span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.vt span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;position:relative;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+.vt{overflow:hidden}.vt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.3)}.vt::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.78))}.vt::before{z-index:2}
 .hs{display:flex;gap:10px;overflow-x:auto}.hs .cd{flex:0 0 44%}
 .yt{aspect-ratio:2/1;border-radius:14px;overflow:hidden;background:#111;color:#fff;display:grid;place-items:center;text-align:center;margin-top:10px}
 .yt iframe{width:100%;height:100%;border:0}
@@ -62,9 +63,9 @@ h2{font-size:16px;margin:10px 0}
 .pr{color:var(--ac);font-weight:700;font-size:15px}.pr s{color:var(--mu);font-weight:400;font-size:12px;margin-left:6px}
 small{color:var(--mu);font-size:12px;font-weight:400}
 .empty{grid-column:1/-1;text-align:center;color:var(--mu);padding:36px 0}
-.vr{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 0;border-bottom:1px solid var(--bd)}
+.vr{cursor:pointer;display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 0;border-bottom:1px solid var(--bd)}
 .vr .vt{flex:0 0 52px;aspect-ratio:1;font-size:0;padding:0;align-items:center;justify-content:center}
-.vr .vt::before{content:"▶";position:static;background:none;font-size:16px}
+.vr .vt::before{content:"▶";position:relative;top:auto;left:auto;z-index:2;background:none;font-size:16px}
 .vr div{min-width:0;font-size:14px}
 .ft{max-width:1200px;margin:22px auto 0;padding:0 12px;text-align:center}.ft b{display:block;font-size:15px;color:var(--bt)}.ft div{display:flex;justify-content:center;gap:10px;margin:10px 0 8px;flex-wrap:wrap}.ft div a{padding:8px 18px;border-radius:20px;background:var(--card);border:1px solid var(--bd);text-decoration:none;font-size:14px}.ft p{color:var(--mu);font-size:12px;margin:0}
 .foot{text-align:center;color:var(--mu);font-size:12px;margin:20px 0 0}
@@ -154,23 +155,23 @@ var PM=ids(["Emoney Pokemon Pikachu","Emoney Pokemon Charizard","Emoney Demon Ta
 var REC=ids(["Emoney BTS ARIRANG","BTS ARIRANG Tumbler","BTS ARIRANG Cardholder","Emoney Pokemon Pikachu","Emoney KS BCA Black","Emoney Lotso New","Emoney Timnas Indonesia","Emoney Demon Tanjiro Baru"]);
 var cp=function(n){return Math.round(n*(1-DISC)/100)*100};
 P.forEach(function(p){p.pm=PM.indexOf(p.id)>-1;var a=p.t=="e"?[].concat.apply([],M).filter(Boolean).map(function(x){return Math.round(x*1000)*p.kx}):p.pr;p.mn=Math.min.apply(0,a)});
-var GN=["BCA Prio","Pokemon","Perbedaan Finishing","Timnas","Lotso &amp; Capybara","Merch Lainnya"];
+var GN=["BCA Prio","Pokemon","Perbedaan Finishing","Timnas","Lotso &amp; Capybara","Merch Lainnya","Hasil Cetak"];
 // video ulasan dari ulasan.html: kelompok|platform (i=Instagram, t=TikTok)|judul|id
-var V=["0|i|Tanpa Lis 3D Doff — Mastercard Ada Text|Cwc5AlAg__A","0|i|3D Doff Lis Abu — Mastercard Ada Text|C4RGeRTIwM6","0|i|Amex Doff — Belakang Custom Nama|CySV3nnIleb",
+var V=["6|y|spongebob emoney Doff Flazz|pHz9tR76gDU","6|y|Gon atau Killua, siapa favoritmu? ⚡ E-Money Custom Anime!|er6AO0x7eg0","6|y|Kartu emoney Motif Batik Indonesia - Flazz - 3D Doff - Doff|Cmi_2xcqpv0","6|y|pokemon illustrator rare tcg 3d glossy kartu emoney|NPDTl8radSc","6|y|Lotso lucu, kartu e-money brizzi Flazz - Doff, Glossy, 3D Glossy, 3D auto,|qdY9MrLF2mQ","6|y|Uno Emoney Doff - Uno black +4+|g224Sxr3zGw","6|y|Nailong katalog no 8 v.1 Doff|Yzt5djBhM9A","6|y|Perbedaan Hasil cetak Kartu 3D Doff dan 3D Glossy one piece pokemon tcg|zRjWP1pQ820","6|y|Penjelasan kartu emoney / fungsi kartu uang elektronik - Lotso - Spongebob - BTS Arirang - Pokemon|paRY1aGFlLw","6|y|Botol Sera 500 ml — Supa Strika Jepang Custom print uv - Tumbler Custom Botol Anak gambar kartun|9bhtXJJ-J7w","6|y|Emoney custom Capybara No 7 - Doff 2 sisi Print UV - www.emoneycustom.biz.id|fzDSzzjiauM","6|y|Player Football card - Pemain Sepak bola TIMNAS Indonesia Thom Haye - Persib - Doff 2 sisi - 3D Auto|dLeqmlYAmD4","6|y|Tumbler One Piece Custom desain gambar Print UV - Tumbler Hook|moeUecAaLls","6|y|Emoney Pikachu ex (A1-285) - 3D Glossy mengkilap - Pokemon|aGYjUguqyk8","6|y|flazz bca prioritas custom ada lis abu|Cm2WS05cDSw","0|i|Tanpa Lis 3D Doff — Mastercard Ada Text|Cwc5AlAg__A","0|i|3D Doff Lis Abu — Mastercard Ada Text|C4RGeRTIwM6","0|i|Amex Doff — Belakang Custom Nama|CySV3nnIleb",
 "1|i|Rayquaza Glossy|C4-ZuQshA0W","1|t|Rayquaza Japan — 3D Glossy|7675985566969629959","1|i|Charizard Doff|C3xlVsyhs9w","1|i|Charizard EX Wild Blaze|C113Y7khUic","1|t|Pikachu Zekrom GX Full Blitz 3D Glossy Flazz|7657353144967417096","1|t|Pikachu EX 200 HP - 230/182 SAR — 3D Glossy|7610438222266649874","1|t|Duck Japan Glossy Emoney|7584063367212584199","1|t|Pikachu EX 3D Glossy|7586336090873679111","1|t|Pokemon Illustrator 3D Glossy|7581353943486434568","1|t|Pokemon Illustrator 3D Glossy|7574354950990466312","1|t|Charizard EX 180 — Immersive Rare — 3D Doff|7532897143581920530",
 "2|i|Perbedaan Doff, Glossy &amp; CMYK|DBJFPRqtIFq","2|i|Perbedaan Doff &amp; Glossy Pokemon|DaxOJmHDTnE","2|t|Perbedaan 3D Doff dan Glossy|7662355240913472786",
 "3|t|Timnas — Emoney Doff Seperti 3D Image|7668475814287101191","4|t|Lotso|7656791171405974792","4|t|Capybara Emoney|7628426017924861202","5|t|Botol Plastik Bening|7580614706625400071"].map(function(s){var a=s.split("|");return{g:+a[0],t:a[1],n:a[2],id:a[3]}});
-var VH=[16,17,10,18,2,19],PN={t:"TikTok",i:"Instagram"};
+var VH=[0,1,2,3,4,5],PN={t:"TikTok",i:"Instagram",y:"YouTube"};
 function base(p,s){return p.t=="e"?Math.round(M[s[1]][s[0]]*1000)*p.kx:p.pr[s[p.ix]||0]}
 function price(p,s){var b=base(p,s);return p.pm?cp(b):b}
 var byId=function(i){return P.find(function(p){return p.id==i})};
 function thumb(p){return p.img?'<img src="'+p.img+'" alt="'+p.n+'" loading="lazy" decoding="async" onerror="this.remove()">':''}
 function card(p){return '<article class="cd" data-a="det" data-id="'+p.id+'"><div class="th" style="--h:'+p.h+'">'+p.e+thumb(p)+(p.pm?'<em class="tg">'+PL+'</em>':'')+'</div><div class="bd"><h3>'+p.n+'</h3><div class="pr">'+(p.g.length?'<small>mulai </small>':'')+fmt(p.pm?cp(p.mn):p.mn)+(p.pm?'<s>'+fmt(p.mn)+'</s>':'')+'</div><small>'+p.lb+'</small></div></article>'}
-function vtile(i){var v=V[i];return '<button class="vt" data-a="vid" data-i="'+i+'" data-p="'+PN[v.t]+'" style="--h:'+(v.g*47+110)%360+'"><span>'+v.n+'</span></button>'}
+function vtile(i,tg){tg=tg||'button';var v=V[i],th=v.t=="y"?'<img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">':'';return '<'+tg+' class="vt" data-a="vid" data-i="'+i+'" data-p="'+PN[v.t]+'" style="--h:'+(v.g*47+110)%360+'">'+th+'<span>'+v.n+'</span></'+tg+'>'}
 function home(){
 return '<div class="bn1" id="bn1"><div><img src="images/banner1.webp" alt="Emoney Custom Print UV" width="1089" height="231"></div><div><img src="images/banner2.webp" alt="Promo emoney custom" width="1089" height="231" loading="lazy"></div></div>'
 +'<div class="ct">'+CATS.map(function(c){return '<a href="#'+c[0]+'"><b>'+c[2]+'</b>'+c[1]+'</a>'}).join("")+'</div>'
-+'<div class="sc"><div class="sh2"><b>Video Ulasan</b><a href="'+ULASAN+'" target="_blank" rel="noopener">Lihat selengkapnya ›</a></div><div class="rl">'+VH.map(vtile).join("")+'</div></div>'
++'<div class="sc"><div class="sh2"><b>Video Ulasan</b><a href="'+ULASAN+'" target="_blank" rel="noopener">Lihat selengkapnya ›</a></div><div class="rl">'+VH.map(function(i){return vtile(i)}).join("")+'</div></div>'
 +'<div class="sc"><div class="sh2"><b>Rekomendasi Produk</b></div><div class="hs">'+REC.map(function(i){return card(byId(i))}).join("")+'</div></div>'
 +'<div class="yt">'+(YT?'<iframe src="https://www.youtube-nocookie.com/embed/'+YT+'?autoplay=1&mute=1&loop=1&playlist='+YT+'&controls=0&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>':'<div>▶ Video YouTube autoplay<br><small>isi variabel YT dengan ID video</small></div>')+'</div>'
 +'<div class="sc"><div class="sh2"><b>Produk Promo '+PL+'</b></div><div class="grid">'+PM.map(function(i){return card(byId(i))}).join("")+'</div></div>'}
@@ -184,7 +185,7 @@ function search(){
 var l=P.filter(function(p){return (p.n+" "+p.lb).toLowerCase().indexOf(q)>-1});
 var v=V.map(function(x,i){return i}).filter(function(i){return (V[i].n+" "+GN[V[i].g]+" "+PN[V[i].t]+" ulasan video").toLowerCase().indexOf(q)>-1});
 return (l.length?'<h2>Produk ('+l.length+')</h2><div class="grid">'+l.map(card).join("")+'</div>':'')
-+(v.length?'<h2>Video Ulasan ('+v.length+')</h2><div class="sc">'+v.map(function(i){return '<button class="vr" data-a="vid" data-i="'+i+'">'+vtile(i)+'<div>'+V[i].n+'<br><small>'+PN[V[i].t]+' · '+GN[V[i].g]+'</small></div></button>'}).join("")+'</div>':'')
++(v.length?'<h2>Video Ulasan ('+v.length+')</h2><div class="sc">'+v.map(function(i){return '<div class="vr" role="button" tabindex="0" data-a="vid" data-i="'+i+'">'+vtile(i,'span')+'<div>'+V[i].n+'<br><small>'+PN[V[i].t]+' · '+GN[V[i].g]+'</small></div></div>'}).join("")+'</div>':'')
 +(l.length+v.length?'':'<div class="empty">Tidak ditemukan 🐸</div>')}
 function route(top){
 var h=location.hash.slice(1)||"home",k=CATS.some(function(c){return c[0]==h})?h:"home";
@@ -204,7 +205,7 @@ sheet(gal(p)+'<h2 style="margin:0">'+p.n+'</h2><small>'+p.lb+'</small><div class
 +p.g.map(function(g,gi){return '<div class="g"><b>'+g.n+'</b>'+(g.h?' <small>('+g.h+')</small>':'')+'<div class="vs">'+g.o.map(function(o,oi){return '<button class="vc'+(oi?'':' on')+'" data-a="opt" data-g="'+gi+'" data-i="'+oi+'">'+o+'</button>'}).join("")+'</div></div>'}).join("")
 +'<div class="row"><button class="btn o" data-a="add">+ Keranjang</button><button class="btn" data-a="buy">Beli Langsung</button></div>');
 var g=$(".gal"),c=$("#cnt");if(c)g.addEventListener("scroll",function(){c.textContent=(Math.round(g.scrollLeft/g.clientWidth)+1)+"/"+g.children.length})}
-function vid(i){var v=V[i],t=v.t=="t",src=t?"https://www.tiktok.com/embed/v2/"+v.id:"https://www.instagram.com/p/"+v.id+"/embed",u=t?"https://www.tiktok.com/@desainerpercetakan/video/"+v.id:"https://www.instagram.com/p/"+v.id+"/";
+function vid(i){var v=V[i],y=v.t=="y",t=v.t=="t",src=y?"https://www.youtube.com/embed/"+v.id+"?autoplay=1&playsinline=1&rel=0":t?"https://www.tiktok.com/embed/v2/"+v.id:"https://www.instagram.com/p/"+v.id+"/embed",u=y?"https://www.youtube.com/shorts/"+v.id:t?"https://www.tiktok.com/@desainerpercetakan/video/"+v.id:"https://www.instagram.com/p/"+v.id+"/";
 sheet('<h2 style="margin:0 0 2px;padding-right:34px">'+v.n+'</h2><small>'+PN[v.t]+' · '+GN[v.g]+'</small><div class="vf"><iframe src="'+src+'" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="row"><a class="btn" href="'+u+'" target="_blank" rel="noopener">Lihat di '+PN[v.t]+'</a></div>')}
 function line(it){var p=byId(it.id);return{p:p,u:price(p,it.s),v:p.g.map(function(g,i){return g.o[it.s[i]]}).join(" · ")}}
 function save(){try{localStorage.setItem("ec_cart1",JSON.stringify(cart))}catch(e){}var n=cart.reduce(function(a,i){return a+i.q},0),b=$("#bd");b.textContent=n||"";b.dataset.n=n}
