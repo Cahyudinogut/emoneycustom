@@ -10,36 +10,6 @@
 <link rel="icon" href="images/Frogress-shop.ico" sizes="any">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <style>
-
-  ========
-/* === TAMBAHAN: Center div .sc.ct seperti tata letak kategori Shopee === */
-.sc.ct {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin: 10px auto !important;
-    width: 100% !important;
-    max-width: 1200px !important;
-    overflow-x: visible !important; /* Hilangkan scroll samping agar benar-benar grid center */
-    padding: 16px 8px !important;
-    gap: 8px !important;
-}
-
-.sc.ct a {
-    flex: 0 0 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    color: var(--tx) !important;
-    min-width: 64px !important;
-}
-  ===========
-  
 :root{--bg:#eef5ef;--card:#fff;--tx:#14231a;--mu:#6b7a70;--br:#2f9e44;--bt:#2a9d3f;--on:#fff;--ac:#ea580c;--bd:#e0e9e1;--soft:#dcfce7;--hd:#fff;--gl:#e3ebe5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1510;--card:#16211a;--tx:#e8f2ea;--mu:#8fa496;--br:#2f7d37;--bt:#4ade80;--bd:#243428;--soft:#14321f;--hd:#101a13;--gl:#1b2a1f;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0d1510;--card:#16211a;--tx:#e8f2ea;--mu:#8fa496;--br:#2f7d37;--bt:#4ade80;--bd:#243428;--soft:#14321f;--hd:#101a13;--gl:#1b2a1f;color-scheme:dark}
@@ -208,8 +178,39 @@ body::before{background:var(--br)}
 .feedmode #mb,.feedmode #mp{display:none}
 .fa svg,.fh svg,.fn svg{width:24px;height:24px}
 
-
-  
+/* kategori: tengah di PC, tetap bisa digeser */
+.ct a:first-child{margin-left:auto}.ct a:last-child{margin-right:auto}
+@media(min-width:820px){.ct{gap:8px}.ct a{flex-basis:84px}}
+.ct,.rl,.hs,.chips,.gal,.bn1{-webkit-user-select:none;user-select:none}
+@media(hover:hover) and (pointer:fine){.ct,.rl,.hs,.chips,.gal,.bn1{cursor:grab}}
+.dg{scroll-snap-type:none!important;cursor:grabbing!important}
+.dg *{pointer-events:none}
+/* thumbnail produk */
+.th .st img{transition:transform .4s ease}
+.dt{position:absolute;top:7px;left:0;right:0;display:flex;justify-content:center;gap:4px;z-index:1;pointer-events:none}
+.dt i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 2px rgba(0,0,0,.4);transition:width .25s,background .25s}
+.dt i.on{width:16px;border-radius:4px;background:#fff}
+.hs{padding:8px 2px 12px;margin:-8px -2px -12px}
+@media(hover:hover){.cd{transition:transform .22s ease,box-shadow .22s ease,border-color .22s}.cd:hover{transform:translateY(-5px);box-shadow:0 12px 22px -8px rgba(0,0,0,.28);border-color:var(--br)}.cd:hover .st img{transform:scale(1.07)}.cd:hover:active{transform:scale(.98)}}
+/* galeri detail produk: selalu persegi */
+.gw{width:min(100%,460px);margin:0 auto 12px}
+.gal{height:auto;aspect-ratio:1/1}
+.gb2{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;transition:background .2s}
+.gb2:hover{background:rgba(0,0,0,.78)}.gb2 svg{width:22px;height:22px}.gb2.pv{left:8px}.gb2.nx{right:8px}.gb2[hidden]{display:none}
+.dts{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.dts i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 3px rgba(0,0,0,.45);transition:width .25s}
+.dts i.on{width:20px;border-radius:4px;background:#fff}
+.sw{position:absolute;left:10px;bottom:10px;z-index:2;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:4px 10px 4px 8px;border-radius:12px;pointer-events:none;transition:opacity .4s}
+.sw svg{width:18px;height:18px;animation:wig 1.4s ease-in-out infinite}
+.sw.gone{opacity:0}
+@keyframes wig{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+/* RealPict ala TikTok */
+.fp iframe{opacity:0;transition:opacity .25s}.fp iframe.rd{opacity:1}
+.tz{position:absolute;inset:0;z-index:2;touch-action:pan-y;cursor:pointer}
+.fx,.fa{z-index:3}
+.pi{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;z-index:3;opacity:0;pointer-events:none;transform:scale(.8);transition:opacity .2s,transform .2s}
+.pi.on{opacity:1;transform:none}.pi svg{width:36px;height:36px}
+@media(prefers-reduced-motion:reduce){.sw svg{animation:none}.cd,.th .st img,.fp iframe,.pi{transition:none}.cd:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -242,7 +243,7 @@ gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 
 pen:'<path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2.2s0-2 1.5-2H17a4 4 0 0 0 4-4C21 6.5 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/>',
 game:'<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r=".9"/><circle cx="18" cy="13.5" r=".9"/>',
 vol1:'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>',vol0:'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/>',
-yt:'<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/>',back:'<path d="M15 5l-7 7 7 7"/>',up:'<path d="M6 14l6-6 6 6"/>',down:'<path d="M6 10l6 6 6-6"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
+yt:'<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/>',back:'<path d="M15 5l-7 7 7 7"/>',fwd:'<path d="M9 5l7 7-7 7"/>',lr:'<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>',banner:'<path d="M3 4h18"/><rect x="4.5" y="4" width="15" height="12" rx="1.5"/><path d="M8 8.5h8M8 12h5M9 16v4M15 16v4"/>',up:'<path d="M6 14l6-6 6 6"/>',down:'<path d="M6 10l6 6 6-6"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
 note:'<path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>',play:'<path d="M8 5l11 7-11 7z"/>',pause:'<path d="M8 5v14M16 5v14"/>',next:'<path d="M6 5l9 7-9 7zM18 5v14"/>'};
 var ic=function(n,c){return '<svg'+(c?' class="'+c+'"':'')+' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+IC[n]+'</svg>'};
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){}}
@@ -251,8 +252,8 @@ var fmt=function(n){return n?"Rp"+n.toLocaleString("id-ID"):"Tanya admin"};
 var CK=["Tapcash","Brizzi","Emoney","Flazz"],FN=["Doff 1 sisi","Doff 2 sisi","Glossy 1 sisi","Glossy 2 sisi","3D Doff","3D Glossy","3D Auto 2 sisi"];
 // harga jual (ribuan) dari daftar harga: baris = finishing, kolom = Tapcash, Brizzi, Emoney, Flazz. 0 = belum ada harga, dikonfirmasi admin
 var M=[[60,68,80,98],[82,90,102,120],[83.2,91.2,103.2,121],[105,113,125,143],[132,140,152,170],[145,153,165,183],[0,0,0,0]];
-var CATS=[["emoney","E-Money","💳"],["pvc","ID Card PVC","🪪"],["tumbler","Tumbler / Botol","🥤"],["cardholder","Card Holder","🎫"],["sticker","Sticker","🏷️"],["merchandise","Merchandise","🎁"],["desain","Jasa Desain","🎨"]];
-var TL=[["emoney","E-money","card"],["pvc","ID Card PVC","id"],["tumbler","Tumbler / Botol","cup"],["cardholder","Card Holder","holder"],["sticker","Sticker","tag"],["merchandise","Merchandise","gift"],["desain","Jasa Desain","pen"],["game","Game","game"]];
+var CATS=[["emoney","E-Money","💳"],["pvc","ID Card PVC","🪪"],["tumbler","Tumbler / Botol","🥤"],["cardholder","Card Holder","🎫"],["sticker","Sticker","🏷️"],["spanduk","Spanduk","🚩"],["merchandise","Merchandise","🎁"],["desain","Jasa Desain","🎨"]];
+var TL=[["emoney","E-money","card"],["pvc","ID Card PVC","id"],["tumbler","Tumbler / Botol","cup"],["cardholder","Card Holder","holder"],["sticker","Sticker","tag"],["spanduk","Spanduk","banner"],["merchandise","Merchandise","gift"],["desain","Jasa Desain","pen"],["game","Game","game"]];
 var SUB=["Kartun Lucu","Kartu Sultan","Anime","Kpop","Seni"];
 var ED=[["Emoney KS Mandiri Prioritas","Kartu Sultan","emoney-ks-mandiri-prioritas",2],["Emoney KS BCA Black","Kartu Sultan","emoney-ks-bca-black",2],["Emoney KS Black Titanium","Kartu Sultan","emoney-ks-black-titanium",2],["Emoney KS Mandiri World Elite","Kartu Sultan","emoney-ks-mandiri-world-elite",2],["Emoney KS Amex","Kartu Sultan","emoney-ks-amex",2],["Emoney KS Solitaire","Kartu Sultan","emoney-ks-solitaire",2],["Emoney KS BCA Prioritas","Kartu Sultan","emoney-ks-bca-prioritas",2],["Emoney UNO Black","Kartu Sultan","emoney-uno-black",5],["Emoney KS BCA Union Pay","Kartu Sultan","emoney-ks-bca-union-pay",2],["Emoney Demon Slayer V.1","Anime","emoney-demon-slayer-v-1",2],["Emoney Demon Tanjiro Baru","Anime","emoney-demon-tanjiro-baru",8],["Emoney Naruto","Anime","emoney-naruto",1],["Emoney HXH Karakter","Anime","emoney-hxh-karakter",6],["Emoney HXH Lisensi","Anime","emoney-hxh-lisensi",5],["Emoney Pokemon Fan Umum","Anime","emoney-pokemon-fan-umum",4],["Emoney Pokemon Pikachu","Anime","emoney-pokemon-pikachu",3],["Emoney Pokemon Charizard","Anime","emoney-pokemon-charizard",3],["Emoney Yu-Gi-Oh TCG","Anime","emoney-yu-gi-oh-tcg",3],["Emoney Rapunzel","Kartun Lucu","emoney-rapunzel",7],["Emoney Princess Disney Cover 5 Kartu","Kartun Lucu","emoney-princess-disney-cover-5-kartu",4],["Emoney Princess Disney Cover 2 Kartu","Kartun Lucu","emoney-princess-disney-cover-2-kartu",4],["Emoney Spongebob V.1","Kartun Lucu","emoney-spongebob-v-1",7],["Emoney Spongebob V.2","Kartun Lucu","emoney-spongebob-v-2",7],["Emoney Spongebob SIM","Kartun Lucu","emoney-spongebob-sim",7],["Emoney Nailong V.1","Kartun Lucu","emoney-nailong-v-1",4],["Emoney Lotso New","Kartun Lucu","emoney-lotso-new",7],["Emoney Doraemon V.1","Kartun Lucu","emoney-doraemon-v-1",3],["Emoney Sinchan","Kartun Lucu","emoney-sinchan",3],["Emoney Spiderman Brand V.1","Kartun Lucu","emoney-spiderman-brand-v-1",2],["Emoney BTS ARIRANG","Kpop","emoney-bts-arirang",4],["Emoney Hogwarts","Seni","emoney-hogwarts",4],["Emoney Batik","Seni","emoney-batik",3],["Emoney Timnas Indonesia","Seni","emoney-timnas-indonesia",3],["MY Pertamina PVC","pvc","my-pertamina-pvc",4],["BTS ARIRANG Tumbler","tumbler","bts-arirang-tumbler",1],["BTS ARIRANG Cardholder","merch","bts-arirang-cardholder",5],["BTS ARIRANG Merchandise Konser","merch","bts-arirang-merchandise-konser",3]];
 var GE=[{n:"Kartu",o:CK,h:"semua kartu ada chip-nya"},{n:"Finishing",o:FN}];
@@ -270,6 +271,9 @@ ED.forEach(function(d){var m=imgs(d[2],d[3]);id++;var o=kind({id:id,n:d[0],m:m,i
 P.push({id:++id,c:["pvc"],n:"Kartu Nama PVC Print UV",e:"🪪",h:200,g:GP,pr:[18000,28500],ix:1,lb:"PVC"});
 P.push({id:++id,c:["tumbler"],n:"Tumbler Niagara Print UV",e:"🥤",h:170,g:GT,pr:PT,ix:0,lb:"Tumbler"});
 P.push({id:++id,c:["sticker"],n:"Sticker Vinyl Print Custom A3",e:"🏷️",h:50,g:[],pr:[25000],ix:0,lb:"Sticker"});
+// Spanduk: gambar sementara. Ganti SP kalau nama file berbeda.
+var SP="images/spanduk.png",GS=[{n:"Panjang",o:["1 meter","2 meter","3 meter","5 meter","10 meter"],h:"ukuran lain, tanya admin"}];
+P.push({id:++id,c:["spanduk"],n:"Spanduk Flexi china 280gsm",e:"🚩",h:15,g:GS,pr:[25000,50000,75000,125000,250000],ix:0,lb:"Spanduk · Flexi 280gsm",u:"/meter",m:[{t:"i",s:SP}],img:SP});
 P.push({id:++id,c:["desain"],n:"Jasa Desain Custom",e:"🎨",h:280,g:[],pr:[50000],ix:0,lb:"Jasa Desain"});
 var ids=function(a){return a.map(function(n){return P.find(function(p){return p.n==n}).id})};
 var PM=ids(["Emoney Pokemon Pikachu","Emoney Pokemon Charizard","Emoney Demon Tanjiro Baru","Emoney HXH Karakter","Emoney KS BCA Black","Emoney Lotso New","Emoney Spongebob SIM","Emoney Timnas Indonesia","Emoney BTS ARIRANG","Emoney Naruto"]);
@@ -284,23 +288,42 @@ var V=["6|y|spongebob emoney Doff Flazz|pHz9tR76gDU","6|y|Gon atau Killua, siapa
 "3|t|Timnas — Emoney Doff Seperti 3D Image|7668475814287101191","4|t|Lotso|7656791171405974792","4|t|Capybara Emoney|7628426017924861202","5|t|Botol Plastik Bening|7580614706625400071"].map(function(s){var a=s.split("|");return{g:+a[0],t:a[1],n:a[2],id:a[3]}});
 var VH=[0,1,2,3,4,5],PN={t:"TikTok",i:"Instagram",y:"YouTube"};
 var YV=V.map(function(v,i){return i}).filter(function(i){return V[i].t=="y"}),fobs,mute=true;
-function feed(){return '<div class="fh"><a href="#home" aria-label="Kembali">'+ic("back")+'</a><b>Video RealPict</b><span id="fc"></span></div><div class="feed" id="feed">'+YV.map(function(i){var v=V[i];return '<section class="fs" data-id="'+v.id+'"><div class="fp"><img class="fi" src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="" onerror="this.remove()"><div class="fo"></div><div class="fx">'+v.n+'</div><div class="fa"><button class="mu" data-a="mute" aria-label="Suara">'+ic(mute?"vol0":"vol1")+'</button><a href="https://www.youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener" aria-label="Buka di YouTube">'+ic("yt")+'</a><a href="https://wa.me/'+WA+'?text='+encodeURIComponent("Halo Emoney Custom, saya tertarik dengan: "+v.n)+'" target="_blank" rel="noopener" aria-label="Tanya via WhatsApp">'+ic("chat")+'</a></div></div></section>'}).join("")+'</div><div class="fn"><button data-a="fup" aria-label="Sebelumnya">'+ic("up")+'</button><button data-a="fdn" aria-label="Berikutnya">'+ic("down")+'</button></div>'}
-function ld(s){if(s.querySelector("iframe"))return;var f=document.createElement("iframe"),id=s.dataset.id;f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+(mute?1:0)+"&loop=1&playlist="+id+"&controls=0&playsinline=1&rel=0&modestbranding=1&enablejsapi=1&origin="+encodeURIComponent(location.origin);f.allow="autoplay; encrypted-media; fullscreen";f.title="Video ulasan";var p=s.querySelector(".fp");p.insertBefore(f,p.querySelector(".fo"))}
+function feed(){return '<div class="fh"><a href="#home" aria-label="Kembali">'+ic("back")+'</a><b>Video RealPict</b><span id="fc"></span></div><div class="feed" id="feed">'+YV.map(function(i){var v=V[i];return '<section class="fs" data-id="'+v.id+'"><div class="fp"><img class="fi" src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="" onerror="this.remove()"><div class="fo"></div><div class="tz" data-a="ptap" aria-label="Putar atau jeda video"></div><div class="pi">'+ic("play")+'</div><div class="fx">'+v.n+'</div><div class="fa"><button class="mu" data-a="mute" aria-label="Suara">'+ic(mute?"vol0":"vol1")+'</button><a href="https://www.youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener" aria-label="Buka di YouTube">'+ic("yt")+'</a><a href="https://wa.me/'+WA+'?text='+encodeURIComponent("Halo Emoney Custom, saya tertarik dengan: "+v.n)+'" target="_blank" rel="noopener" aria-label="Tanya via WhatsApp">'+ic("chat")+'</a></div></div></section>'}).join("")+'</div><div class="fn"><button data-a="fup" aria-label="Sebelumnya">'+ic("up")+'</button><button data-a="fdn" aria-label="Berikutnya">'+ic("down")+'</button></div>'}
+var fact=null,cur=-1;
+function ycmd(f,fn,a){try{f.contentWindow.postMessage(JSON.stringify({event:"command",func:fn,args:a||[]}),"*")}catch(e){}}
+function ld(s,auto){var f=s.querySelector("iframe");if(f)return f;var id=s.dataset.id;f=document.createElement("iframe");
+f.src="https://www.youtube.com/embed/"+id+"?autoplay="+(auto?1:0)+"&mute="+(mute?1:0)+"&loop=1&playlist="+id+"&controls=0&playsinline=1&rel=0&modestbranding=1&enablejsapi=1&origin="+encodeURIComponent(location.origin);
+f.allow="autoplay; encrypted-media; fullscreen";f.title="Video ulasan";
+f.addEventListener("load",function(){f._ok=1;if(s===fact)play(s)});
+var p=s.querySelector(".fp");p.insertBefore(f,p.querySelector(".fo"));return f}
+function play(s){var f=s.querySelector("iframe");if(!f||!f._ok)return;ycmd(f,mute?"mute":"unMute");if(!s._p)ycmd(f,"playVideo");setTimeout(function(){if(s===fact)f.classList.add("rd")},150)}
 function ul(s){var f=s.querySelector("iframe");if(f)f.remove()}
-function initFeed(idx){var f=$("#feed"),s=[].slice.call(f.children);f.scrollTop=idx*f.clientHeight;$("#fc").textContent=(idx+1)+"/"+s.length;
-if(!window.IntersectionObserver){ld(s[idx]);return}
-fobs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ld(e.target);$("#fc").textContent=(s.indexOf(e.target)+1)+"/"+s.length}else ul(e.target)})},{root:f,threshold:.7});
+function act(i){var f=$("#feed");if(!f)return;var ss=[].slice.call(f.children);fact=ss[i];
+ss.forEach(function(s,k){var pi=s.querySelector(".pi");if(pi)pi.classList.remove("on");s._p=0;
+if(Math.abs(k-i)>1){ul(s);return}
+var fr=ld(s,k==i);
+if(k==i)play(s);else{fr.classList.remove("rd");if(fr._ok){ycmd(fr,"pauseVideo");ycmd(fr,"seekTo",[0,true])}}});
+$("#fc").textContent=(i+1)+"/"+ss.length}
+function initFeed(idx){var f=$("#feed"),s=[].slice.call(f.children);f.scrollTop=idx*f.clientHeight;cur=idx;act(idx);
+if(!window.IntersectionObserver)return;
+fobs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=.6){var i=s.indexOf(e.target);if(i!=cur){cur=i;act(i)}}})},{root:f,threshold:[.6]});
 s.forEach(function(x){fobs.observe(x)})}
+document.addEventListener("visibilitychange",function(){if(!fact)return;var f=fact.querySelector("iframe");if(!f||!f._ok)return;if(document.hidden)ycmd(f,"pauseVideo");else if(!fact._p)ycmd(f,"playVideo")});
 document.addEventListener("keydown",function(e){var f=$("#feed");if(f&&(e.key=="ArrowDown"||e.key=="ArrowUp")){e.preventDefault();f.scrollBy({top:(e.key=="ArrowUp"?-1:1)*f.clientHeight,behavior:"smooth"})}});
 function base(p,s){return p.t=="e"?Math.round(M[s[1]][s[0]]*1000)*p.kx:p.pr[s[p.ix]||0]}
 function price(p,s){var b=base(p,s);return p.pm?cp(b):b}
 var byId=function(i){return P.find(function(p){return p.id==i})};
 function thumb(p){return p.img?'<img src="'+p.img+'" alt="" loading="lazy" onerror="this.remove()">':''}
-function card(p){var st="";if(p.m&&p.m.length)st='<div class="st">'+p.m.slice(0,4).map(function(m,i){return '<img '+(i?'data-s':'src')+'="'+m.s+'" alt="'+(i?'':p.n)+'" loading="lazy" onerror="this.remove()">'}).join("")+'</div>';
-return '<article class="cd" data-a="det" data-id="'+p.id+'"><div class="th" style="--h:'+p.h+'">'+p.e+st+(p.pm?'<em class="tg"><b>-10%</b><span>Order<br>Offline</span></em>':'')+'</div><div class="bd"><h3>'+p.n+'</h3>'+(p.g.length?'<small class="mu2">mulai</small>':'')+'<div class="pr">'+fmt(p.pm?cp(p.mn):p.mn)+(p.pm?'<s>'+fmt(p.mn)+'</s>':'')+'</div><small>'+p.lb+'</small></div></article>'}
+function card(p){var st="";if(p.m&&p.m.length)st='<div class="st">'+p.m.slice(0,4).map(function(m,i){return '<img '+(i?'data-s':'src')+'="'+m.s+'" alt="'+(i?'':p.n)+'" loading="lazy" onerror="this.remove()">'}).join("")+'</div>'+(p.m.length>1?'<div class="dt">'+p.m.slice(0,4).map(function(x,i){return '<i'+(i?'':' class="on"')+'></i>'}).join("")+'</div>':'');
+return '<article class="cd" data-a="det" data-id="'+p.id+'"><div class="th" style="--h:'+p.h+'">'+p.e+st+(p.pm?'<em class="tg"><b>-10%</b><span>Order<br>Offline</span></em>':'')+'</div><div class="bd"><h3>'+p.n+'</h3>'+(p.g.length?'<small class="mu2">mulai</small>':'')+'<div class="pr">'+fmt(p.pm?cp(p.mn):p.mn)+(p.pm?'<s>'+fmt(p.mn)+'</s>':'')+(p.u?'<small>'+p.u+'</small>':'')+'</div><small>'+p.lb+'</small></div></article>'}
 function ld2(s){[].forEach.call(s.querySelectorAll("img[data-s]"),function(i){i.src=i.dataset.s;i.removeAttribute("data-s")})}
-function initStrips(){document.querySelectorAll(".st").forEach(function(s){if(s.children.length<2)return;s.addEventListener("pointerdown",function(){ld2(s)},{passive:true});
-var go=function(){if(!s.isConnected)return;var r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth&&!document.hidden){ld2(s);s.scrollTo({left:((Math.round(s.scrollLeft/s.clientWidth)+1)%s.children.length)*s.clientWidth,behavior:"smooth"})}s._t=setTimeout(go,3000+Math.random()*1500)};s._t=setTimeout(go,1500+Math.random()*2500)})}
+function initStrips(){document.querySelectorAll(".st").forEach(function(s){if(s.children.length<2)return;var th=s.parentNode,dt=th.querySelector(".dt"),last=-1;
+s.addEventListener("pointerdown",function(){ld2(s)},{passive:true});
+if(dt)s.addEventListener("scroll",function(){var i=Math.round(s.scrollLeft/s.clientWidth);[].forEach.call(dt.children,function(d,k){d.classList.toggle("on",k==i)})},{passive:true});
+th.addEventListener("pointerenter",function(e){if(e.pointerType=="mouse"){s._h=1;ld2(s)}});
+th.addEventListener("pointerleave",function(){s._h=0;last=-1});
+th.addEventListener("pointermove",function(e){if(e.pointerType!="mouse"||window._dg)return;var n=s.children.length,r=th.getBoundingClientRect(),i=Math.max(0,Math.min(n-1,Math.floor((e.clientX-r.left)/r.width*n)));if(i!=last){last=i;s.scrollTo({left:i*s.clientWidth,behavior:"smooth"})}});
+var go=function(){if(!s.isConnected)return;var r=s.getBoundingClientRect();if(!s._h&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth&&!document.hidden){ld2(s);s.scrollTo({left:((Math.round(s.scrollLeft/s.clientWidth)+1)%s.children.length)*s.clientWidth,behavior:"smooth"})}s._t=setTimeout(go,3000+Math.random()*1500)};s._t=setTimeout(go,1500+Math.random()*2500)})}
 function vtile(i,tg){tg=tg||'button';var v=V[i],th=v.t=="y"?'<img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">':'';return '<'+tg+' class="vt" data-a="vid" data-i="'+i+'" data-p="'+PN[v.t]+'" style="--h:'+(v.g*47+110)%360+'">'+th+'<span>'+v.n+'</span></'+tg+'>'}
 function home(){
 return '<div class="bn1" id="bn1"><div><img src="images/banner1.webp" alt="Emoney Custom Print UV" width="1089" height="231"></div><div><img src="images/banner2.webp" alt="Promo emoney custom" width="1089" height="231" loading="lazy"></div></div>'
@@ -323,7 +346,7 @@ return (l.length?'<h2>Produk ('+l.length+')</h2><div class="grid">'+l.map(card).
 +(v.length?'<h2>Video Ulasan ('+v.length+')</h2><div class="sc">'+v.map(function(i){return '<div class="vr" role="button" tabindex="0" data-a="vid" data-i="'+i+'">'+vtile(i,'span')+'<div>'+V[i].n+'<br><small>'+PN[V[i].t]+' · '+GN[V[i].g]+'</small></div></div>'}).join("")+'</div>':'')
 +(l.length+v.length?'':'<div class="empty">Tidak ditemukan 🐸</div>')}
 function route(top){
-if(fobs){fobs.disconnect();fobs=null}
+if(fobs){fobs.disconnect();fobs=null}fact=null;cur=-1;
 document.querySelectorAll(".st").forEach(function(s){clearTimeout(s._t)});
 var h=location.hash.slice(1)||"home",fm=/^realpict(?:-(\d+))?$/.exec(h),pg=h=="game"||h=="faq"?h:"",k=CATS.some(function(c){return c[0]==h})?h:"home";
 document.body.classList.toggle("feedmode",!!fm);if(fm)closeMusic();
@@ -340,13 +363,13 @@ function sheet(h){$("#sh").innerHTML='<button class="x" data-a="close" aria-labe
 function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},1600)}
 function ph(){var p=sel.p,b=base(p,sel.s),v=price(p,sel.s);return fmt(v)+(p.pm&&b?'<s>'+fmt(b)+'</s> <em class="tg" style="position:static;display:inline-flex;border-radius:8px"><b>-10%</b><span>Order<br>Offline</span></em>':'')}
 
-function gal(p){var m=p.m||[{t:"i"}];
-return '<div class="gw"><div class="gal">'+m.map(function(x){var c=x.t=="v"?'<video src="'+x.s+'" controls playsinline muted loop></video>':(x.s?'<img src="'+x.s+'" alt="">':'<span>'+p.e+'</span>');return '<div class="sl" style="--h:'+p.h+'">'+c+'</div>'}).join("")+'</div>'+(m.length>1?'<span class="cnt" id="cnt">1/'+m.length+'</span>':'')+'</div>'}
+function gal(p){var m=p.m||[{t:"i"}],n=m.length,d="";for(var k=0;k<n;k++)d+='<i'+(k?'':' class="on"')+'></i>';
+return '<div class="gw"><div class="gal">'+m.map(function(x){var c=x.t=="v"?'<video src="'+x.s+'" controls playsinline muted loop></video>':(x.s?'<img src="'+x.s+'" alt="">':'<span>'+p.e+'</span>');return '<div class="sl" style="--h:'+p.h+'">'+c+'</div>'}).join("")+'</div>'+(n>1?'<button class="gb2 pv" data-a="gp" aria-label="Foto sebelumnya" hidden>'+ic("back")+'</button><button class="gb2 nx" data-a="gn" aria-label="Foto berikutnya">'+ic("fwd")+'</button><span class="sw" id="sw">'+ic("lr")+'Geser</span><span class="cnt" id="cnt">1/'+n+'</span><div class="dts" id="dts">'+d+'</div>':'')+'</div>'}
 function det(i){var p=byId(i);sel={p:p,s:p.g.map(function(){return 0})};
 sheet(gal(p)+'<h2 style="margin:0">'+p.n+'</h2><small>'+p.lb+'</small><div class="pr big" id="dp">'+ph()+'</div>'
 +p.g.map(function(g,gi){return '<div class="g"><b>'+g.n+'</b>'+(g.h?' <small>('+g.h+')</small>':'')+'<div class="vs">'+g.o.map(function(o,oi){return '<button class="vc'+(oi?'':' on')+'" data-a="opt" data-g="'+gi+'" data-i="'+oi+'">'+o+'</button>'}).join("")+'</div></div>'}).join("")
 +'<div class="row"><button class="btn o" data-a="add">+ Keranjang</button><button class="btn" data-a="buy">Beli Langsung</button></div>');
-var g=$(".gal"),c=$("#cnt");if(c)g.addEventListener("scroll",function(){c.textContent=(Math.round(g.scrollLeft/g.clientWidth)+1)+"/"+g.children.length})}
+var g=$(".gal"),c=$("#cnt");if(c){var sw=$("#sw");setTimeout(function(){sw.classList.add("gone")},6000);g.addEventListener("scroll",function(){var n=g.children.length,i=Math.min(n-1,Math.round(g.scrollLeft/g.clientWidth));c.textContent=(i+1)+"/"+n;[].forEach.call($("#dts").children,function(x,k){x.classList.toggle("on",k==i)});$(".gb2.pv").hidden=i==0;$(".gb2.nx").hidden=i==n-1;if(g.scrollLeft>8)sw.classList.add("gone")},{passive:true})}}
 function vid(i){var v=V[i],y=v.t=="y",t=v.t=="t",src=y?"https://www.youtube.com/embed/"+v.id+"?autoplay=1&playsinline=1&rel=0":t?"https://www.tiktok.com/embed/v2/"+v.id:"https://www.instagram.com/p/"+v.id+"/embed",u=y?"https://www.youtube.com/shorts/"+v.id:t?"https://www.tiktok.com/@desainerpercetakan/video/"+v.id:"https://www.instagram.com/p/"+v.id+"/";
 sheet('<h2 style="margin:0 0 2px;padding-right:34px">'+v.n+'</h2><small>'+PN[v.t]+' · '+GN[v.g]+'</small><div class="vf"><iframe src="'+src+'" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="row"><a class="btn" href="'+u+'" target="_blank" rel="noopener">Lihat di '+PN[v.t]+'</a></div>')}
 function line(it){var p=byId(it.id);return{p:p,u:price(p,it.s),v:p.g.map(function(g,i){return g.o[it.s[i]]}).join(" · ")}}
@@ -441,7 +464,9 @@ else if(a=="cart")cartView();
 else if(a=="inc"){cart[el.dataset.k].q++;save();cartView()}
 else if(a=="dec"){var i=cart[el.dataset.k];if(--i.q<1)cart.splice(el.dataset.k,1);save();cartView()}
 else if(a=="co")wa(cart,true);
-else if(a=="mute"){mute=!mute;document.querySelectorAll(".mu").forEach(function(b){b.innerHTML=ic(mute?"vol0":"vol1")});var f=document.querySelector(".feed iframe");if(f)f.contentWindow.postMessage(JSON.stringify({event:"command",func:mute?"mute":"unMute",args:[]}),"*")}
+else if(a=="mute"){mute=!mute;document.querySelectorAll(".mu").forEach(function(b){b.innerHTML=ic(mute?"vol0":"vol1")});document.querySelectorAll(".feed iframe").forEach(function(f){ycmd(f,mute?"mute":"unMute")})}
+else if(a=="ptap"){var ps=el.closest(".fs"),pf=ps.querySelector("iframe");if(pf&&pf._ok){ps._p=!ps._p;ycmd(pf,ps._p?"pauseVideo":"playVideo");ps.querySelector(".pi").classList.toggle("on",ps._p)}}
+else if(a=="gp"||a=="gn"){var gl=el.closest(".gw").querySelector(".gal");gl.scrollBy({left:(a=="gp"?-1:1)*gl.clientWidth,behavior:"smooth"})}
 else if(a=="fup"||a=="fdn"){var fd=$("#feed");if(fd)fd.scrollBy({top:(a=="fup"?-1:1)*fd.clientHeight,behavior:"smooth"})}
 else if(a=="coin"){useCoin=!useCoin;ls("ec_uc",useCoin?"1":"0");cartView()}
 else if(a=="gcat"){GM.cat=el.dataset.c;gameRender()}
@@ -459,6 +484,13 @@ else if(a=="mpx")closeMusic();
 else if(a=="close"){$("#ov").hidden=true;$("#sh").innerHTML=""}});
 $("#q").addEventListener("input",function(e){q=e.target.value.toLowerCase().trim();route()});
 window.addEventListener("hashchange",function(){q="";$("#q").value="";$("#ov").hidden=true;$("#sh").innerHTML="";route(true)});
+(function(){var S=".ct,.rl,.hs,.chips,.gal,.bn1",el,x0,s0,mv=0,dr=0;
+document.addEventListener("pointerdown",function(e){if(e.pointerType!="mouse"||e.button)return;var t=e.target.closest(S);if(!t||t.scrollWidth<=t.clientWidth+1)return;el=t;x0=e.clientX;s0=t.scrollLeft;mv=0});
+document.addEventListener("pointermove",function(e){if(!el)return;if(!(e.buttons&1)){end();return}var d=e.clientX-x0;if(!mv){if(Math.abs(d)<6)return;mv=1;window._dg=1;el.classList.add("dg")}el.scrollLeft=s0-d});
+function end(){if(!el)return;var t=el;el=null;if(mv){mv=0;window._dg=0;dr=1;setTimeout(function(){dr=0},80);t.classList.remove("dg");if(t.matches(".gal,.bn1"))t.scrollTo({left:Math.round(t.scrollLeft/t.clientWidth)*t.clientWidth,behavior:"smooth"})}}
+document.addEventListener("pointerup",end);document.addEventListener("pointercancel",end);
+document.addEventListener("click",function(e){if(dr){e.stopPropagation();e.preventDefault()}},true);
+document.addEventListener("dragstart",function(e){if(e.target.closest&&e.target.closest(S))e.preventDefault()})})();
 initUI();
 try{cart=JSON.parse(localStorage.getItem("ec_cart1")||"[]").filter(function(i){return byId(i.id)})}catch(e){cart=[]}
 save();route();
