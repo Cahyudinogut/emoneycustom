@@ -12,46 +12,32 @@
 <style>
 
   ========
-body {
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-}
-
+/* === TAMBAHAN: Center div .sc.ct seperti tata letak kategori Shopee === */
 .sc.ct {
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.sc.ct h1 {
-    color: #ee4d2d;
-    margin-bottom: 20px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 10px auto !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    overflow-x: visible !important; /* Hilangkan scroll samping agar benar-benar grid center */
+    padding: 16px 8px !important;
+    gap: 8px !important;
 }
 
 .sc.ct a {
-    display: inline-block;
-    background: #ee4d2d;
-    color: white;
-    padding: 10px 24px;
-    text-decoration: none;
-    border-radius: 4px;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    color: var(--tx) !important;
+    min-width: 64px !important;
 }
-
-.sc.ct a:hover {
-    background: #d73211;
-}
-
   ===========
   
 :root{--bg:#eef5ef;--card:#fff;--tx:#14231a;--mu:#6b7a70;--br:#2f9e44;--bt:#2a9d3f;--on:#fff;--ac:#ea580c;--bd:#e0e9e1;--soft:#dcfce7;--hd:#fff;--gl:#e3ebe5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -221,6 +207,9 @@ body::before{background:var(--br)}
 #mp .mc{display:flex;margin-top:6px}#mp .mc button{flex:1;height:34px;display:grid;place-items:center;color:var(--br)}#mp .mc svg{width:22px;height:22px}
 .feedmode #mb,.feedmode #mp{display:none}
 .fa svg,.fh svg,.fn svg{width:24px;height:24px}
+
+
+  
 </style>
 </head>
 <body>
