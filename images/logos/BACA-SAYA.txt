@@ -1,0 +1,3 @@
+shopee.svg dan tiktok.svg: logo vektor dari paket simple-icons (CC0).
+tokopedia.svg: PLACEHOLDER sederhana. Ganti dengan logo resmi Tokopedia (unduh dari halaman brand/press resmi Tokopedia), simpan dengan nama yang sama: tokopedia.svg.
+Semua logo adalah merek dagang pemiliknya masing-masing.
