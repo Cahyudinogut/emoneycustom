@@ -295,6 +295,18 @@ body::before{background:var(--br)}
 .fa .fb{position:absolute;right:calc(100% + 6px);top:26px;translate:0 -50%;width:max-content;max-width:min(185px,calc(100vw - 140px));display:block;background:#fff;color:#14231a;font-size:12.5px;font-weight:600;line-height:1.3;padding:8px 11px;border-radius:14px 14px 4px 14px;text-shadow:none;box-shadow:0 4px 14px rgba(0,0,0,.35);opacity:0;transform:translateX(8px) scale(.95);pointer-events:none;transition:.35s}
 .fa .fb.on{opacity:1;transform:none;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.wf,.pk.go,.fa .fcl .ib{animation:none}.pk{display:none}}
+/* pemutar playlist */
+.mpl{position:absolute;right:calc(100% + 10px);top:50%;translate:0 -50%;z-index:3;width:min(210px,calc(100vw - 100px));display:flex;flex-direction:column;gap:6px;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.3);padding:10px 8px 8px 12px;animation:pop2 .25s ease-out}
+.mpl[hidden]{display:none}
+@keyframes pop2{from{opacity:0;transform:translateX(10px) scale(.95)}}
+.mph{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.mph>div{min-width:0;display:grid}
+.mph b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mph small{font-size:11.5px;color:var(--mu)}
+.mph button{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;color:var(--mu)}.mph button svg{width:18px;height:18px}
+.mpc{display:flex;justify-content:center;align-items:center;gap:12px}
+.mpc button{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--br)}.mpc button:hover{background:var(--soft)}.mpc svg{width:22px;height:22px}
+.mpc #mpp{width:46px;height:46px;background:var(--br);color:#fff}.mpc #mpp:hover{background:var(--br)}.mpc #mpp svg{width:24px;height:24px}
+@media(prefers-reduced-motion:reduce){.mpl{animation:none}}
 </style>
 </head>
 <body>
@@ -310,10 +322,11 @@ body::before{background:var(--br)}
 <div id="ov" hidden><div id="sh"></div></div>
 <div id="toast"></div>
 <div class="fk" id="fk">
-<div class="fw"><button id="mb" data-a="mb" data-ic="note" aria-label="Putar musik latar" aria-pressed="false"></button><button id="mbb" class="wb" data-a="mb" type="button"></button></div>
+<div class="fw"><button id="mb" data-a="mb" data-ic="note" aria-label="Putar musik latar" aria-pressed="false"></button><button id="mbb" class="wb" data-a="mb" type="button"></button>
+<div id="mpl" class="mpl" hidden role="group" aria-label="Pemutar musik"><div class="mph"><div><b id="mpt">Lagu 1</b><small id="mpc2">Lagu 1 dari 5</small></div><button data-a="mpx" data-ic="x" aria-label="Tutup pemutar"></button></div><div class="mpc"><button data-a="mpv" data-ic="prev" aria-label="Lagu sebelumnya"></button><button id="mpp" data-a="mpp" aria-label="Putar"></button><button data-a="mpn" data-ic="next" aria-label="Lagu berikutnya"></button></div></div></div>
 <div class="fw"><span class="pk" id="pk" aria-hidden="true"></span><a id="wf" class="wf" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp"></a><a id="wb" class="wb" href="#" target="_blank" rel="noopener"></a></div>
 </div>
-<audio id="au" src="musikwebsite.mp3" loop preload="none"></audio>
+<audio id="au" preload="none"></audio>
 <script>
 var WA="6281213322008",ULASAN="https://frogressshop.vercel.app/ulasan.html",YT="DiQeAAW0ysc",DISC=.1,PL="-10% Order Offline";
 var $=function(s){return document.querySelector(s)};
@@ -345,7 +358,7 @@ pen:'<path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2.2s0-2 1.5-2H17a4 4 0 0 0 4-4C
 game:'<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r=".9"/><circle cx="18" cy="13.5" r=".9"/>',
 vol1:'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>',vol0:'<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/>',
 yt:'<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/>',back:'<path d="M15 5l-7 7 7 7"/>',fwd:'<path d="M9 5l7 7-7 7"/>',lr:'<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>',banner:'<path d="M3 4h18"/><rect x="4.5" y="4" width="15" height="12" rx="1.5"/><path d="M8 8.5h8M8 12h5M9 16v4M15 16v4"/>',up:'<path d="M6 14l6-6 6 6"/>',down:'<path d="M6 10l6 6 6-6"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
-note:'<path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>',play:'<path d="M8 5l11 7-11 7z"/>',pause:'<path d="M8 5v14M16 5v14"/>',next:'<path d="M6 5l9 7-9 7zM18 5v14"/>'};
+note:'<path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>',play:'<path d="M8 5l11 7-11 7z"/>',pause:'<path d="M8 5v14M16 5v14"/>',next:'<path d="M6 5l9 7-9 7zM18 5v14"/>',prev:'<path d="M18 5l-9 7 9 7zM6 5v14"/>'};
 var ic=function(n,c){return '<svg'+(c?' class="'+c+'"':'')+' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+IC[n]+'</svg>'};
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){}}
 var VCH=[],MAXD=25,VDAYS=7,useV=ls("ec_uv")!=="0",TM=ls("ec_theme")||"light";
@@ -573,12 +586,19 @@ var PH=0;
 var WT=[["Konsultasi Desain","saya mau konsultasi desain."],["Buat desain preview","saya mau buat desain preview."],["Bisa kita cek dulu filenya..",""],["Cetak ID Card bisa di Emoney ka ?",""],["Bisa lewat Offline agar lebih Murah ?",""],["Kamu udah makan belum ? 🙂",""],["Saya share di sosmed hasilnya, bisa dapat potongan ?",""],["Saya Jual lagi bisa dapat harga Reseller ?",""]];
 var STK=["😆","🥰","😎","🤩","😜","🤗","😍","🥹","😺","🐸","🐥","🐼","🦊","🐰","🙈","🧸","👻","🤪"],MT="yuk play musik kita relax dulu guys..!",musicTold=0,AU=null;
 function pauseMusic(){var a=$("#au");if(a&&!a.paused)a.pause()}
-function musUi(){var a=$("#au"),b=$("#mb");if(!a||!b)return;var on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");b.innerHTML=ic(on?"pause":"note")}
-function mus(){var a=$("#au");if(!a)return;musicTold=1;$("#mbb").classList.remove("on");if(a.paused){var r=a.play();if(r&&r.catch)r.catch(function(){musUi();toast("Musik belum bisa diputar. Pastikan file musikwebsite.mp3 sudah diunggah.")})}else a.pause()}
+var LAGU=[["Lagu 1","musik/lagu1.mp3"],["Lagu 2","musik/lagu2.mp3"],["Lagu 3","musik/lagu3.mp3"],["Lagu 4","musik/lagu4.mp3"],["Lagu 5","musik/lagu5.mp3"]],TI=-1;
+function musUi(){var a=$("#au"),b=$("#mb"),pp=$("#mpp");if(!a||!b)return;var on=!!a.src&&!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");b.innerHTML=ic(on?"pause":"note");if(pp){pp.innerHTML=ic(on?"pause":"play");pp.setAttribute("aria-label",on?"Jeda":"Putar")}}
+function musLoad(i){var a=$("#au");TI=(i+LAGU.length)%LAGU.length;a.src=LAGU[TI][1];$("#mpt").textContent=LAGU[TI][0];$("#mpc2").textContent="Lagu "+(TI+1)+" dari "+LAGU.length;var r=a.play();if(r&&r.catch)r.catch(musUi);musUi()}
+function musToggle(){var pl=$("#mpl");musicTold=1;$("#mbb").classList.remove("on");if(!pl.hidden){pl.hidden=true;return}pl.hidden=false;if(TI<0)musLoad(0)}
+function musPP(){var a=$("#au");musicTold=1;if(TI<0){musLoad(0);return}if(a.paused){var r=a.play();if(r&&r.catch)r.catch(musUi)}else a.pause()}
+function musSkip(d){var a=$("#au");musicTold=1;if(d<0&&TI>=0&&a.currentTime>3){a.currentTime=0;return}musLoad((TI<0?0:TI)+d)}
 function initWA(){var f=$("#wf"),b=$("#wb"),mb=$("#mbb"),pk=$("#pk"),a=$("#au"),bag=[],n=0,si=0,stk=shuf(STK.slice()),
 u=function(m){return "https://wa.me/"+WA+"?text="+encodeURIComponent("Halo Emoney Custom, "+m)};
 f.innerHTML=ic("wa");f.href=u("saya mau konsultasi desain.");mb.textContent=MT;
-["play","pause","ended"].forEach(function(ev){a.addEventListener(ev,musUi)});
+["play","pause"].forEach(function(ev){a.addEventListener(ev,musUi)});
+a.addEventListener("ended",function(){musLoad(TI+1)});
+a.addEventListener("error",function(){musUi();if(TI>=0)toast("File "+LAGU[TI][1]+" belum ada atau tidak bisa dibuka.")});
+musUi();
 var flash=function(e){e.classList.add("on");setTimeout(function(){e.classList.remove("on")},4600)};
 var tick=function(){if(document.hidden||document.body.classList.contains("feedmode"))return;n++;
 if(!musicTold&&n%4==0){flash(mb);return}
@@ -629,7 +649,11 @@ else if(a=="gspin")spin();
 else if(a=="gcart")cartView();
 else if(a=="gshop")location.hash="emoney";
 else if(a=="gclaim")window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Halo Emoney Custom, saya punya voucher game: "+vtxt()+". Total diskon "+vp()+"% (maks "+MAXD+"%). Mohon dibantu klaim, terima kasih."),"_blank");
-else if(a=="mb")mus();
+else if(a=="mb")musToggle();
+else if(a=="mpp")musPP();
+else if(a=="mpn")musSkip(1);
+else if(a=="mpv")musSkip(-1);
+else if(a=="mpx"){$("#mpl").hidden=true}
 else if(a=="close"){$("#ov").hidden=true;$("#sh").innerHTML=""}});
 $("#q").addEventListener("input",function(e){q=e.target.value.toLowerCase().trim();route()});
 window.addEventListener("hashchange",function(){q="";$("#q").value="";$("#ov").hidden=true;$("#sh").innerHTML="";route(true)});

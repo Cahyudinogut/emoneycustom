@@ -1,0 +1,9 @@
+Taruh 5 file lagu di folder ini dengan nama persis:
+lagu1.mp3
+lagu2.mp3
+lagu3.mp3
+lagu4.mp3
+lagu5.mp3
+
+Judul yang tampil di pemutar diubah di index.html, variabel LAGU (cari "var LAGU=").
+Gunakan musik bebas hak cipta atau berlisensi.
