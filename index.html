@@ -279,7 +279,7 @@ body::before{background:var(--br)}
 @keyframes whue{0%,100%{background:#25d366}50%{background:#12c4a4}}
 @keyframes wwig{0%,84%,100%{rotate:0deg}88%{rotate:-9deg}92%{rotate:8deg}96%{rotate:-4deg}}
 .wb{position:absolute;right:calc(100% + 10px);bottom:auto;top:50%;translate:0 -50%;width:max-content;max-width:min(235px,calc(100vw - 110px));text-align:left;font-family:inherit;line-height:1.3;border:0;cursor:pointer}
-.pk{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:#fff;border:2.5px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.3);display:grid;place-items:center;font-size:23px;line-height:1;z-index:0;opacity:0;pointer-events:none}
+.pk{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px 0 0 -19px;padding:0;box-sizing:border-box;border-radius:50%;background:#fff;border:2.5px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;text-align:center;font-size:21px;line-height:1;letter-spacing:0;text-indent:0;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;overflow:hidden;z-index:0;opacity:0;pointer-events:none}
 .pk.go{animation:pkp 3.6s ease-in-out forwards}
 @keyframes pkp{0%{opacity:0;transform:translate(0,0) scale(.3) rotate(0)}20%{opacity:1;transform:translate(var(--dx),var(--dy)) scale(1.12) rotate(var(--r))}30%{transform:translate(var(--dx),var(--dy)) scale(1) rotate(calc(var(--r)*-1))}42%{transform:translate(var(--dx),var(--dy)) scale(1.05) rotate(var(--r))}54%,76%{opacity:1;transform:translate(var(--dx),var(--dy)) scale(1) rotate(0)}100%{opacity:0;transform:translate(0,0) scale(.3) rotate(0)}}
 .feedmode .fk{display:none}
