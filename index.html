@@ -455,7 +455,8 @@ var go=function(){if(!s.isConnected)return;var r=s.getBoundingClientRect();if(!s
 function vtile(i,tg){tg=tg||'button';var v=V[i],th=v.t=="y"?'<img src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">':'';return '<'+tg+' class="vt" data-a="vid" data-i="'+i+'" data-p="'+PN[v.t]+'" style="--h:'+(v.g*47+110)%360+'">'+th+'<span>'+v.n+'</span></'+tg+'>'}
 function tiles(a){return '<div class="sc ct">'+TL.map(function(c){var on=c[0]==a;return '<a'+(on?' class="on"':'')+' href="#'+c[0]+'"><b>'+ic(c[2]+(on?"S":""))+'</b>'+c[1]+'</a>'}).join("")+'</div>'}
 function home(){
-return '<div class="bn1" id="bn1"><div><img src="images/banner1.webp" alt="Emoney Custom Print UV" width="1089" height="231"></div><div><img src="images/banner2.webp" alt="Promo emoney custom" width="1089" height="231" loading="lazy"></div></div>'
+return '<div class="bn1" id="bn1"><div><img src="images/banner1.webp" alt="Emoney Custom Print UV" width="1089" height="231"></div><div><img src="images/banner2.webp" alt="Promo emoney custom" width="1089" height="231" loading="lazy"></div>
+  <div><img src="images/banner3.webp" alt="Emoney Custom Print UV" width="1089" height="231"></div></div>'
 +tiles("")
 +'<div class="sc"><div class="sh2"><b>Video RealPict</b><a href="#realpict">Lihat selengkapnya ›</a></div><div class="rl">'+VH.map(function(i){return vtile(i)}).join("")+'</div></div>'
 +'<div class="sc"><div class="sh2"><b>Rekomendasi Produk</b></div><div class="hs">'+REC.map(function(i){return card(byId(i))}).join("")+'</div></div>'
