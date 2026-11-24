@@ -586,7 +586,7 @@ var PH=0;
 var WT=[["Konsultasi Desain","saya mau konsultasi desain."],["Buat desain preview","saya mau buat desain preview."],["Bisa kita cek dulu filenya..",""],["Cetak ID Card bisa di Emoney ka ?",""],["Bisa lewat Offline agar lebih Murah ?",""],["Kamu udah makan belum ? 🙂",""],["Saya share di sosmed hasilnya, bisa dapat potongan ?",""],["Saya Jual lagi bisa dapat harga Reseller ?",""]];
 var STK=["😆","🥰","😎","🤩","😜","🤗","😍","🥹","😺","🐸","🐥","🐼","🦊","🐰","🙈","🧸","👻","🤪"],MT="yuk play musik kita relax dulu guys..!",musicTold=0,AU=null;
 function pauseMusic(){var a=$("#au");if(a&&!a.paused)a.pause()}
-var LAGU=[["Lagu 1","musik/lagu1.mp3"],["Lagu 2","musik/lagu2.mp3"],["Lagu 3","musik/lagu3.mp3"],["Lagu 4","musik/lagu4.mp3"],["Lagu 5","musik/lagu5.mp3"]],TI=-1;
+var LAGU=[["RAIM LAODE - PADA HATI YANG MANA","musik/lagu1.mp3"],["TULUS - Teh Hijau","musik/lagu2.mp3"],["Kiroro - Mirai e [未来へ] (Anime Cover) AiHime","musik/lagu3.mp3"],["Amnesia Al Ghazali","musik/lagu4.mp3"],["Lagu 5","musik/lagu5.mp3"]],TI=-1;
 function musUi(){var a=$("#au"),b=$("#mb"),pp=$("#mpp");if(!a||!b)return;var on=!!a.src&&!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");b.innerHTML=ic(on?"pause":"note");if(pp){pp.innerHTML=ic(on?"pause":"play");pp.setAttribute("aria-label",on?"Jeda":"Putar")}}
 function musLoad(i){var a=$("#au");TI=(i+LAGU.length)%LAGU.length;a.src=LAGU[TI][1];$("#mpt").textContent=LAGU[TI][0];$("#mpc2").textContent="Lagu "+(TI+1)+" dari "+LAGU.length;var r=a.play();if(r&&r.catch)r.catch(musUi);musUi()}
 function musToggle(){var pl=$("#mpl");musicTold=1;$("#mbb").classList.remove("on");if(!pl.hidden){pl.hidden=true;return}pl.hidden=false;if(TI<0)musLoad(0)}
