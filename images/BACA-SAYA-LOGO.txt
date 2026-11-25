@@ -1,0 +1,8 @@
+LOGO YANG DIPAKAI
+- images/logo-header.png            : header (Frogress Shop & 7Merch putih), 1560x132 px.
+- images/logo-7merch.png            : footer 7Merch tema TERANG (inisial 7 warna, tulisan hitam, garis tepi putih).
+- images/logo-7merch-warna-gelap.png: footer 7Merch tema GELAP (inisial 7 warna, tulisan putih). Pindah otomatis mengikuti tema.
+- images/logo-frogress-footer.png   : footer Frogress hijau (di tema gelap dicerahkan oleh CSS).
+- images/logo-7-inisial.png         : inisial 7, belum dipasang.
+Ukuran tampil di CSS: .lgh img (header), .ftc{--fh:...} (footer: tinggi logo Frogress = ukuran huruf judul "Official Online Shop :" dan "Sosial Media :").
+LINK FOOTER: cari komentar "LINK FOOTER" di index.html, isi tanda kutip "" yang masih kosong.
