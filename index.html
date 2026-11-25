@@ -318,21 +318,21 @@ body::before{background:var(--br)}
 .ftc{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;text-align:left}
 .ftcol{display:flex;flex-direction:column;gap:12px;min-width:0}
 .ftcol.r{align-items:flex-end;text-align:right}
-.ftc{--fh:16px}.ftcol>b{font:600 var(--fh)/1.2 Poppins,system-ui,sans-serif;color:var(--bt)}
+/* --fh = tinggi logo Frogress, --ft = ukuran huruf judul (lebih kecil dari logo), --fc = ukuran ikon bulat */
+.ftc{--fh:14px;--ft:11px;--fc:28px}.ftcol>b{font:600 var(--ft)/1.2 Poppins,system-ui,sans-serif;color:var(--bt)}
 .ftg{display:flex;flex-direction:column;align-items:flex-start;gap:6px}.ftcol.r .ftg{align-items:flex-end}.ftl{flex:none}
-.ftl{display:block;width:auto;max-width:100%}.ftl.f{height:var(--fh)}.ftl.m{height:calc(var(--fh)*1.45)}.ftl.dk{display:none}
+.ftl{display:block;width:auto;max-width:100%}.ftl.f{height:var(--fh)}.ftl.m{height:calc(var(--fh)*1.4)}.ftl.dk{display:none}
 .ftr{display:flex;gap:6px}
-.ft .fta{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--bd);padding:0;overflow:hidden;margin:0}
+.ft .fta{width:var(--fc);height:var(--fc);border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--bd);padding:0;overflow:hidden;margin:0}
 .fta img{width:18px;height:18px;object-fit:contain}
-.ft .fta.s{border:0;background:none}.fta.s img{width:30px;height:30px}
+.ft .fta.s{border:0;background:none}.fta.s img{width:var(--fc);height:var(--fc)}
 .ftc+p{margin-top:16px!important}
 :root[data-theme="dark"] .ftl.f{filter:brightness(1.35)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ftl.f{filter:brightness(1.35)}}
 :root[data-theme="dark"] .ftl.lt{display:none}:root[data-theme="dark"] .ftl.dk{display:block}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ftl.lt{display:none}:root:not([data-theme="light"]) .ftl.dk{display:block}}
-@media(max-width:420px){.ftc{--fh:14px}}
-@media(max-width:340px){.ftc{--fh:12px}}
-@media(max-width:380px){.ft .fta,.fta.s img{width:28px;height:28px}}
+@media(max-width:420px){.ftc{--fh:12px;--ft:10px;--fc:26px}}
+@media(max-width:340px){.ftc{--fh:11px;--ft:9px;--fc:24px}}
 </style>
 </head>
 <body>
