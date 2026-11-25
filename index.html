@@ -315,7 +315,9 @@ body::before{background:var(--br)}
 .lgh{display:block;max-width:100%;line-height:0}.lgh img{display:block;height:30px;width:auto;max-width:100%}
 @media(min-width:900px){.hb{grid-area:1/1/3/2;gap:4px}.hb .dm{font-size:14px}.lgh img{height:36px}.hic{grid-area:1/3/3/4;align-self:center}}
 /* footer: toko & sosial media */
-.ftc{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;text-align:left}
+/* lebar footer = lebar menu bawah (720px): tepi kiri sejajar ikon Beranda, tepi kanan sejajar ikon FAQ. Ubah angka 58px dan 14px untuk geser tepi */
+.ft{padding-left:0;padding-right:0}
+.ftc{box-sizing:border-box;max-width:720px;margin:0 auto;padding:0 max(12px,min(58px,calc(10vw - 14px)));display:flex;justify-content:space-between;align-items:flex-start;gap:12px;text-align:left}
 .ftcol{display:flex;flex-direction:column;gap:12px;min-width:0}
 .ftcol.r{align-items:flex-end;text-align:right}
 /* --fh = tinggi logo Frogress, --ft = ukuran huruf judul (lebih kecil dari logo), --fc = ukuran ikon bulat */
